@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/note")
 public class NoteController {
-
+String deviceApiSdk="deviceApiSdk";
     @Autowired
     private NoteService noteService;
 
@@ -35,7 +35,8 @@ public class NoteController {
 
     @GetMapping
     public ResponseEntity<NoteResponse> getAll(HttpServletRequest request, HttpServletResponse response, @Nullable @RequestParam String title) {
-
+        //Custom Change: Get Response Header From FinalUser
+        System.out.println(request.getHeader(deviceApiSdk));
         NoteResponse noteResponse;
 
         if (title == null) {
