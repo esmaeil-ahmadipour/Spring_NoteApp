@@ -5,17 +5,17 @@ import ir.arcademy.notes.modules.note.domain.Note;
 import java.util.List;
 
 public class NoteResponse {
-    private List<Note> notes;
+    private List<Note> data;
 
-    public NoteResponse(List<Note> notes) {
-        this.notes = notes;
+    public NoteResponse(List<Note> data) {
+        this.data = data;
     }
 
-    public List<Note> getNotes() {
-        return notes;
+    public List<Note> getData() {
+        return data;
     }
 
-    public void setNotes(List<Note> notes) {
-        this.notes = notes;
+    public void setData(List<Note> data) {
+        this.data = data;
     }
 }

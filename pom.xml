@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ir.arcademy</groupId>
-    <artifactId>notes</artifactId>
+    <artifactId>data</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>notes</name>
+    <name>data</name>
     <description>Note project for Arcademy Retrofit Tutorial</description>
 
     <properties>

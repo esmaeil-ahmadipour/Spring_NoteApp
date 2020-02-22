@@ -1,22 +1,21 @@
 package ir.arcademy.notes.modules.note.model;
 
 import ir.arcademy.notes.modules.note.domain.Category;
-import ir.arcademy.notes.modules.note.domain.Note;
 
 import java.util.List;
 
 public class CategoryResponse {
-    private List<Category> categories;
+    private List<Category> data;
 
-    public CategoryResponse(List<Category> categories) {
-        this.categories = categories;
+    public CategoryResponse(List<Category> data) {
+        this.data = data;
     }
 
-    public List<Category> getCategories() {
-        return categories;
+    public List<Category> getData() {
+        return data;
     }
 
-    public void setCategories(List<Category> categories) {
-        this.categories = categories;
+    public void setData(List<Category> data) {
+        this.data = data;
     }
 }
