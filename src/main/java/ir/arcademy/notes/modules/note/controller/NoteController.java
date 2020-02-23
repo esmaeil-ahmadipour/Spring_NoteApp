@@ -38,6 +38,7 @@ String deviceApiSdk="deviceApiSdk";
         //Custom Change: Get Response Header From FinalUser
         System.out.println(request.getHeader(deviceApiSdk));
         NoteResponse noteResponse;
+/*
 
         if (title == null) {
             noteResponse = new NoteResponse(noteService.findAll().collect(Collectors.toList()));
@@ -45,12 +46,13 @@ String deviceApiSdk="deviceApiSdk";
             noteResponse = new NoteResponse(noteService.findByTitle(title).collect(Collectors.toList()));
         }
 
+*/
         //< Auth block
-        /*if (title == null) {
+        if (title == null) {
             noteResponse = new NoteResponse(noteService.findByAuthorEmail(authenticationFacade.getAuthentication().getName()).collect(Collectors.toList()));
         }else {
             noteResponse = new NoteResponse(noteService.findByTitleAndAuthorEmail(authenticationFacade.getAuthentication().getName(), title).collect(Collectors.toList()));
-        }*/
+        }
         // Auth block >
         return new ResponseEntity<>(noteResponse, HttpStatus.OK);
     }
@@ -67,8 +69,8 @@ String deviceApiSdk="deviceApiSdk";
     @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity save(@Valid @RequestBody Note note) {
         //< Auth block
-        /*User user = userService.findByEmail(authenticationFacade.getAuthentication().getName());
-        requestEntity.getBody().setAuthor(user);*/
+        User user = userService.findByEmail(authenticationFacade.getAuthentication().getName());
+        note.setAuthor(user);
         // Auth block >
         noteService.save(note);
         return new ResponseEntity(HttpStatus.OK);
@@ -82,8 +84,8 @@ String deviceApiSdk="deviceApiSdk";
         }
         note.setId(id);
         //< Auth block
-        /*User user = userService.findByEmail(authenticationFacade.getAuthentication().getName());
-        requestEntity.getBody().setAuthor(user);*/
+        User user = userService.findByEmail(authenticationFacade.getAuthentication().getName());
+        note.setAuthor(user);
         // Auth block >
         noteService.save(note);
         return new ResponseEntity(HttpStatus.OK);

@@ -29,11 +29,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/api/user/register", "/api/user/login")
-                .permitAll();
-                /*.anyRequest()
+                .permitAll()
+                .anyRequest()
                 .authenticated()
                 .and().
-                httpBasic();*/
+                httpBasic();
     }
 
     @Bean
